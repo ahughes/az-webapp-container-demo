@@ -48,9 +48,9 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ahugheswebappcontainer
+        app-name: 'ahugheswebappcontainer'
         slot-name: 'staging'
-        images: ahugheswebappcontainerdev.azurecr.io/ahugheswebappcontainer/helloworld:${{ github.sha}}
+        images: ahugheswebappcontainerdev.azurecr.io/ahugheswebappcontainer/helloworld:${{ github.sha }}
         
   release:
     runs-on: ubuntu-latest
