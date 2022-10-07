@@ -2,8 +2,8 @@ name: Azure Web App Container
 
 on:
   workflow_dispatch:
-#   push:
-#     branches: [ "main" ]
+  push:
+    branches: [ "main" ]
 
 permissions:
   id-token: write
@@ -30,7 +30,7 @@ jobs:
       - name: Build and push container image to registry
         run: |
           docker pull nginxdemos/hello
-          docker tag nginxdemos/hello https://ahugheswebappcontainerdev.azurecr.io/ahugheswebappcontainer/helloworld:${{ github.sha }}
+          docker tag nginxdemos/hello ahugheswebappcontainerdev.azurecr.io/ahugheswebappcontainer/helloworld:${{ github.sha }}
           docker push ahugheswebappcontainerdev.azurecr.io/ahugheswebappcontainer/helloworld:${{ github.sha }}
   
   deploy:
